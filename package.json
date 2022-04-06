@@ -1,0 +1,23 @@
+{
+  "name": "newapi",
+  "version": "0.0.0",
+  "description": "try hard node js ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "marius niemet",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "nanoid": "^3.3.2",
+    "pino": "^7.9.2",
+    "pino-pretty": "^7.6.0",
+    "zod": "^3.14.4"
+  }
+}
