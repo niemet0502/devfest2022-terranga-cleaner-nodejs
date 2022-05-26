@@ -1,5 +1,8 @@
 {
-  "compilerOptions": { "esModuleInterop": true },
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "esModuleInterop": true
+  },
   "include": ["src"],
   "exclude": ["node_modules"],
   "emitDecoratorMetadata": true,
