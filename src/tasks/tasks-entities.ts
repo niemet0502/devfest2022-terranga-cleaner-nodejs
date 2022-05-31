@@ -11,7 +11,7 @@ export class Task {
   @Column("text")
   description: string;
 
-  @Column()
+  @Column("boolean")
   isDueDate: boolean;
 
   @Column("text")
