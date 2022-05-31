@@ -1,5 +1,6 @@
 import cors from "cors";
 import express, { Router } from "express";
+import { DataSource } from "typeorm";
 
 export default function initServer(router: Router) {
   const app = express();
@@ -10,4 +11,8 @@ export default function initServer(router: Router) {
   app.use("/v1", router);
 
   return app;
+}
+
+export async function createDataBaseConnection(AppDataSource: DataSource) {
+  await AppDataSource.initialize();
 }
