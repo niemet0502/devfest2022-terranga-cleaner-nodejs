@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { Task } from "../tasks/tasks-entities";
+import Task from "../tasks/tasks-entities";
 
 export const AppDataSource = new DataSource({
   type: "mysql",

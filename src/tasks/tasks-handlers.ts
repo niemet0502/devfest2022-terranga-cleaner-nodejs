@@ -2,11 +2,12 @@ import { Request, Response } from "express";
 import taskRepository from "./tasks-repositories";
 import * as taskService from "./tasks-service";
 
-export const createTask = (req: Request, res: Response) => {
+export const createTask = async (req: Request, res: Response) => {
   let task = taskService.create(req);
 
-  task = taskRepository.create(task);
+  task = await taskRepository.save(task);
 
+  console.log(task);
   res.status(200).send(task);
 };
 
