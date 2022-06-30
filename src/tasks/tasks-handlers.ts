@@ -7,10 +7,10 @@ export const createTask = async (req: Request, res: Response) => {
 
   task = await taskRepository.save(task);
 
-  console.log(task);
   res.status(200).send(task);
 };
 
-export const getTask = (req: Request, res: Response) => {
-  res.status(200).send("task list");
+export const getTasks = async (req: Request, res: Response) => {
+  let tasks = await taskRepository.find();
+  res.status(200).send(tasks);
 };
