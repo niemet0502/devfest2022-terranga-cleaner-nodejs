@@ -14,3 +14,16 @@ export const getTasks = async (req: Request, res: Response) => {
   let tasks = await taskRepository.find();
   res.status(200).send(tasks);
 };
+
+export const updateTask = async (req: Request, res: Response) => {
+  res.status(200).send();
+};
+
+export const getTask = async (req: Request, res: Response) => {
+  let id = req.params.id;
+  console.log(id);
+
+  let task = await taskRepository.find({ where: { id: id } });
+
+  res.status(200).send(task);
+};
