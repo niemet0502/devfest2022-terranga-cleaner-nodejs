@@ -23,7 +23,7 @@ export const updateTask = async (req: Request, res: Response) => {
 export const getTask = async (req: Request, res: Response) => {
   let id = req.params.id;
 
-  let task = await taskRepository.find({ where: { id: id } });
+  let task = await taskRepository.findOne({ where: { id: id } });
 
   res.status(200).send(task);
 };
