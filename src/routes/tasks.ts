@@ -1,4 +1,6 @@
 import express from "express";
+import { validateBody } from "../middleware/validateBody";
+import { taskSchema } from "../schema/task";
 import {
   createTask,
   getTask,
@@ -8,7 +10,7 @@ import {
 const router = express.Router();
 
 router.get("/", getTasks);
-router.post("/", createTask);
+router.post("/", validateBody(taskSchema), createTask);
 router.put("/", updateTask);
 router.get("/:id", getTask);
 
