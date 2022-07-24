@@ -5,4 +5,5 @@ export const userSchema = Joi.object().keys({
   firstname: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string().required(),
+  confirm_password: Joi.any().valid(Joi.ref("password")).required(),
 });
