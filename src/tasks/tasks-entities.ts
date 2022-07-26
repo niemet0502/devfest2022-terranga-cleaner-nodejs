@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import User from "../user/user-entities";
 
 @Entity()
 export default class Task {
@@ -16,4 +17,7 @@ export default class Task {
 
   @Column("text")
   date: boolean;
+
+  @ManyToOne(() => User, (user) => user.tasks, { onDelete: "CASCADE" })
+  user: User;
 }

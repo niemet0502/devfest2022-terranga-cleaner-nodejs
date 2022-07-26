@@ -3,7 +3,7 @@ import taskRepository from "./tasks-repositories";
 import * as taskService from "./tasks-service";
 
 export const createTask = async (req: Request, res: Response) => {
-  let task = taskService.create(req);
+  let task = taskService.create(req as any);
 
   task = await taskRepository.save(task);
 
