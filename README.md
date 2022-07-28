@@ -9,6 +9,7 @@
 
 - [ ] Users 
     - [ ] Create  
+        - Send Welcome Email 
     - [ ] Edit 
     - [ ] Delete 
     - [ ] Show 
@@ -16,8 +17,11 @@
 
 - [ ] Authentication 
     - [ ] Sign in 
-    - [ ] Sign up 
+        - Check if user exist (email and password)
+        - Refresh the token
+    - [ ] Sign out 
 
 - [ ] Token
     - [ ] 
+
     
