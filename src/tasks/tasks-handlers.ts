@@ -11,7 +11,11 @@ export const createTask = async (req: Request, res: Response) => {
 };
 
 export const getTasks = async (req: Request, res: Response) => {
-  let tasks = await taskRepository.find({ order: { id: "DESC" } });
+  let userId = parseInt(req.params.userId);
+  let tasks = await taskRepository.find({
+    order: { id: "DESC" },
+    relations: { user: true }
+  });
   res.status(200).send(tasks);
 };
 
