@@ -9,7 +9,7 @@ import {
 } from "../tasks/tasks-handlers";
 const router = express.Router();
 
-router.get("/", getTasks);
+router.get("/:userId", getTasks);
 router.post("/", validateBody(taskSchema), createTask);
 router.put("/", updateTask);
 router.get("/:id", getTask);
