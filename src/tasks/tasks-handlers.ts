@@ -46,7 +46,20 @@ export const updateTask = async (req: Request, res: Response) => {
 export const getTask = async (req: Request, res: Response) => {
   let id = parseInt(req.params.id);
 
-  let task = await taskRepository.findOne({ where: { id: id } });
+  let task = await taskRepository.findOne({
+    where: { id: id },
+    relations: { user: true },
+  });
 
   res.status(200).send(task);
+};
+
+export const deleteTask = async (req: Request, res: Response) => {
+  let id = parseInt(req.params.id);
+
+  console.log(id);
+
+  await taskRepository.delete(id);
+
+  res.status(200).send({ message: "Task had been successfully deleted" });
 };
