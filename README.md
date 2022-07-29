@@ -7,7 +7,7 @@
   - [x] Create
   - [x] Edit
   - [x] Delete
-  - [ ] Show
+  - [x] Show
   - [x] Get Tasks
 
 - [ ] Users
