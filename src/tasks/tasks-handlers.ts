@@ -14,7 +14,7 @@ export const getTasks = async (req: Request, res: Response) => {
   let userId = parseInt(req.params.userId);
   let tasks = await taskRepository.find({
     order: { id: "DESC" },
-    relations: { user: true }
+    where: { user: { id: userId } },
   });
   res.status(200).send(tasks);
 };
