@@ -1,7 +1,7 @@
 import Task from "./tasks-entities";
 
-export const create = (req: Request) => {
-  const { name, description, isDueDate, date } = req.body as any;
+export const create = (body: Request) => {
+  const { name, description, isDueDate, date } = body as any;
 
   const task = new Task();
 

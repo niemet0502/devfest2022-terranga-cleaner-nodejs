@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 router.get("/:userId", getTasks);
-router.post("/", validateBody(taskSchema), createTask);
+router.post("/:userId", validateBody(taskSchema), createTask);
 router.put("/", updateTask);
 router.get("/:id", getTask);
 
