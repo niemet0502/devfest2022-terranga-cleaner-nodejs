@@ -1,4 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import Session from "../authentication/session-entity";
 import Task from "../tasks/tasks-entities";
 
 @Entity()
@@ -20,4 +21,7 @@ export default class User {
 
   @OneToMany(() => Task, (task) => task.user)
   tasks: Task[];
+
+  @OneToMany(() => Session, (session) => session.user)
+  sessions: Session[];
 }
