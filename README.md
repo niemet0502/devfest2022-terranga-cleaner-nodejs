@@ -13,7 +13,6 @@
 - [ ] Users
 
   - [ ] Create
-    - Send Welcome Email
   - [ ] Edit
   - [ ] Delete
   - [ ] Show
