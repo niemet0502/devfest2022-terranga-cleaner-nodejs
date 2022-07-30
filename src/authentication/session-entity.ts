@@ -12,6 +12,6 @@ export default class Session {
   @Column("date")
   expirationDate: Date;
 
-  @ManyToOne(() => User, (user) => user.tasks, { onDelete: "CASCADE" })
+  @ManyToOne(() => User, (user) => user.sessions, { onDelete: "CASCADE" })
   user: User;
 }
