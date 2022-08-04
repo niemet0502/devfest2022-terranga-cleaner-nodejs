@@ -1,10 +1,14 @@
-import userRepository from "../user/user-repositories";
+import jwt from "jsonwebtoken";
+import User from "../user/user-entities";
+import Session from "./session-entity";
 
-export const findUserAccount = async (body: any) => {
-  const { email, password } = body;
+export const createUserSession = (user: User) => {
+  const accessToken = jwt.sign(user.toJSON(), "accessTokenPrivateKey");
 
-  const user = await userRepository.findOne({ where: { email: email } });
+  const session = new Session();
 
-  if (!user) {
-  }
+  session.token = accessToken;
+  session.user = user;
+
+  return session;
 };
