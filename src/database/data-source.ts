@@ -1,4 +1,5 @@
 import { DataSource } from "typeorm";
+import Session from "../authentication/session-entity";
 import Task from "../tasks/tasks-entities";
 import User from "../user/user-entities";
 
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   database: "taskmanagement",
   synchronize: true,
   logging: true,
-  entities: [User, Task],
+  entities: [User, Task, Session],
   subscribers: [],
   migrations: [],
 });
