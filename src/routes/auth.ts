@@ -6,3 +6,5 @@ import { authSchema } from "../schema/auth";
 const router = express.Router();
 
 router.post("/signin", validateBody(authSchema), signIn);
+
+export default router;
