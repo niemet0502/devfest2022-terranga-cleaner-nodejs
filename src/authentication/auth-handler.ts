@@ -24,3 +24,11 @@ export const signIn = async (req: Request, res: Response) => {
 
   res.status(201).send(session);
 };
+
+export const signOut = async (req: Request, res: Response) => {
+  const token = res.locals.token;
+
+  await sessionRepository.delete({ token });
+
+  return res.send({ message: "successfully sign out" });
+};
