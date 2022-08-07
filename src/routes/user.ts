@@ -6,7 +6,7 @@ import { createUser, getUsers } from "../user/user-handlers";
 
 const router = express.Router();
 
-router.post("/", requireUser, validateBody(userSchema), createUser);
+router.post("/", validateBody(userSchema), createUser);
 router.get("/", requireUser, getUsers);
 
 export default router;
