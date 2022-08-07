@@ -1,15 +1,9 @@
 import { Request, Response } from "express";
-import userRepository from "../user/user-repositories";
 import taskRepository from "./tasks-repositories";
 import * as taskService from "./tasks-service";
 
 export const createTask = async (req: Request, res: Response) => {
-  let userId = parseInt(req.params.userId);
-
-  if (!userId) {
-    res.sendStatus(404);
-  }
-  const user = await userRepository.findOne({ where: { id: userId } });
+  const user = res.locals.user;
 
   if (!user) {
     res.sendStatus(404);
@@ -24,16 +18,15 @@ export const createTask = async (req: Request, res: Response) => {
 };
 
 export const getTasks = async (req: Request, res: Response) => {
-  let userId = parseInt(req.params.userId);
+  const user = res.locals.user;
 
-  console.log(userId);
-  if (!userId) {
+  if (!user) {
     res.status(400).send({ message: "User id is missing" });
   }
 
   let tasks = await taskRepository.find({
     order: { id: "DESC" },
-    where: { user: { id: userId } },
+    where: { user: { id: user.id } },
   });
   res.status(200).send(tasks);
 };

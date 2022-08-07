@@ -17,12 +17,13 @@ const deserializeUser = async (
     return next();
   }
 
-  const decoded = jwt.verify(accessToken, "accessTokenPrivateKey");
-
-  if (decoded) {
-    res.locals.user = decoded;
-    return next();
-  }
+  try {
+    const decoded = jwt.verify(accessToken, "accessTokenPrivateKey");
+    if (decoded) {
+      res.locals.user = decoded;
+      return next();
+    }
+  } catch (e) {}
 
   return next();
 };
