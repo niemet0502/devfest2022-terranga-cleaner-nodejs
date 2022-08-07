@@ -2,7 +2,7 @@
 
 ## Features
 
-- [ ] Tasks
+- [x] Tasks
 
   - [x] Create
   - [x] Edit
@@ -12,18 +12,18 @@
 
 - [ ] Users
 
-  - [ ] Create
-  - [ ] Edit
-  - [ ] Delete
-  - [ ] Show
-  - [ ] Get User
+  - [x] Create
+  - [x] Edit
+  - [x] Delete
+  - [x] Show
+  - [x] Get User
 
-- [ ] Authentication
+- [x] Authentication
 
-  - [ ] Sign in
-    - Check if user exist (email and password)
-    - Refresh the token
-  - [ ] Sign out
+  - [x] Sign in
+    - [x] Check if user exist (email and password)
+    - [x] Refresh the token
+  - [x] Sign out
 
-- [ ] Token
-  - [ ]
+- [x] Token
+  - [x] Create a new session
