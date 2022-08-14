@@ -8,6 +8,9 @@ const deserializeUser = async (
 ) => {
   const bearerHeader = req.headers["authorization"];
   let accessToken = null;
+
+  console.log("deserialize");
+
   if (typeof bearerHeader !== "undefined") {
     const bearer = bearerHeader.split(" ");
     accessToken = bearer[1];
@@ -23,9 +26,9 @@ const deserializeUser = async (
       res.locals.user = decoded;
       return next();
     }
-  } catch (e) {}
-
-  return next();
+  } catch (e) {
+    return next();
+  }
 };
 
 export default deserializeUser;
