@@ -19,3 +19,15 @@ export const findUserByEmail = async (email: string) => {
     where: { email: email },
   });
 };
+
+export const save = async (user: User) => {
+  user = await userRepository.save(user);
+
+  return user;
+};
+
+export const fetchAll = async () => {
+  const users = await userRepository.find();
+
+  return users;
+};

@@ -1,10 +1,9 @@
-import userRepository from "./user-repositories";
 import * as userService from "./user-service";
 
 export const createUser = async (req: Request, res: Response) => {
   let { email } = req.body as any;
 
-  let user = await userRepository.findOne({ where: { email: email } });
+  let user = await userService.findUserByEmail(email);
 
   if (user) {
     return res.status(403).send({ email: "email must be unique" });
@@ -12,13 +11,13 @@ export const createUser = async (req: Request, res: Response) => {
 
   user = await userService.create(req);
 
-  user = await userRepository.save(user);
+  user = await userService.save(user);
 
-  res.status(200).send(user);
+  return res.status(200).send(user);
 };
 
 export const getUsers = async (req: Request, res: Response) => {
-  let users = await userRepository.find();
+  const users = await userService.fetchAll();
 
-  res.status(200).send(users);
+  return res.status(200).send(users);
 };
